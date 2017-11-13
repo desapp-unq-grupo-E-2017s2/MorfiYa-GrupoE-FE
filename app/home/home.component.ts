@@ -1,7 +1,8 @@
 ﻿import { Component, OnInit } from '@angular/core';
 
 import { User } from '../_models/index';
-import { UserService } from '../_services/index';
+import { UserService, ModalService } from '../_services/index';
+
 
 @Component({
     moduleId: module.id,
@@ -10,9 +11,10 @@ import { UserService } from '../_services/index';
 
 export class HomeComponent implements OnInit {
     currentUser: User;
+    model: any = {};
     users: User[] = [];
 
-    constructor(private userService: UserService) {
+    constructor(private userService: UserService, private modalService: ModalService) {
         this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     }
 
@@ -26,5 +28,12 @@ export class HomeComponent implements OnInit {
 
     private loadAllUsers() {
         this.userService.getAll().subscribe(users => { this.users = users; });
+    }
+     openModal(id: string){
+        this.modalService.open(id);
+    }
+
+    closeModal(id: string){
+        this.modalService.close(id);
     }
 }

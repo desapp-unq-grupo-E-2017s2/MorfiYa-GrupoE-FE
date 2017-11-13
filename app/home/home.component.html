@@ -1,12 +1,64 @@
 ﻿<div class="col-md-6 col-md-offset-3">
     <h1>Hi {{currentUser.firstName}}!</h1>
-    <p>You're logged in with Angular 2!!</p>
+  	<div id= "foodBusiness">
+  		<p>No tenes un negocio, queres crear uno?</p>
+    	<button (click)="openModal('foodBusinessCreate')">Crear Negocio</button>
+  	</div>	
     <h3>All registered users:</h3>
     <ul>
         <li *ngFor="let user of users">
-            {{user.username}} ({{user.firstName}} {{user.lastName}})
+            {{user.email}} ({{user.firstName}} {{user.lastName}})
             - <a (click)="deleteUser(user.id)">Delete</a>
         </li>
     </ul>
     <p><a [routerLink]="['/login']">Logout</a></p>
 </div>
+
+<modal id="foodBusinessCreate">
+    <div class="modal">
+        <div class="modal-body">
+            <h1>Crear Negocio!</h1>
+            
+<form name="form" (ngSubmit)="f.form.valid && addFoodBusiness()" #f="ngForm" novalidate>
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !name.valid }">
+            <label for="name">Nombre</label>
+            <input type="text" class="form-control" name="name" [(ngModel)]="model.name" #name="ngModel" required />
+            <div *ngIf="f.submitted && !name.valid" class="help-block">Name is required</div>
+        </div>
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !name.valid }">
+            <label for="logo">Logo</label>
+            <input type="text" class="form-control" name="logo" [(ngModel)]="model.logo" #logo="ngModel" required />
+            <div *ngIf="f.submitted && !logo.valid" class="help-block">Logo is required</div>
+        </div>
+         <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !name.valid }">
+            <label for="mapLocation">Ubicación en mapa</label>
+            <input type="text" class="form-control" name="mapLocation" [(ngModel)]="model.mapLocation" #mapLocation="ngModel" required />
+            <div *ngIf="f.submitted && !mapLocation.valid" class="help-block">Map Location is required</div>
+        </div>
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !name.valid }">
+            <label for="description">Descripción</label>
+            <input type="description" class="form-control" name="description" [(ngModel)]="model.description" #description="ngModel" required />
+            <div *ngIf="f.submitted && !description.valid" class="help-block">Description is required</div>
+        </div>
+         <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+            <label for="deliveryLocation">Zona Delivery</label>
+            <input type="text" class="form-control" name="deliveryLocation" [(ngModel)]="model.deliveryLocation" #deliveryLocation="ngModel" required />
+            <div *ngIf="f.submitted && !deliveryLocation.valid" class="help-block">DeliveryLocation is required</div>
+        </div>
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !name.valid }">
+            <label for="website">Website</label>
+            <input type="website" class="form-control" name="website" [(ngModel)]="model.website" #website="ngModel" required />
+            <div *ngIf="f.submitted && !website.valid" class="help-block">Website is required</div>
+        </div>
+        <div class="form-group">
+            <button [disabled]="loading" class="btn btn-primary">Agregar</button>
+            <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+            <!--<a [routerLink]="['/login']" class="btn btn-link">Cancel</a> -->
+        </div>
+    </form>
+            <button (click)="closeModal('custom-modal-1');">Close</button>
+        </div>
+    </div>
+    <div class="modal-background"></div>
+</modal>
+
