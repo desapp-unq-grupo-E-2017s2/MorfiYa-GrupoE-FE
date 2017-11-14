@@ -74,8 +74,8 @@ export class LoginComponent implements OnInit {
     }
 
     public googleInit() {
-   gapi.load('auth2', () => {
-     this.auth2 = gapi.auth2.init({
+       gapi.load('auth2', () => {
+       this.auth2 = gapi.auth2.init({
        client_id: '1064758500637-toknl6l9t7ukmfdjh7imbtqemhergtet.apps.googleusercontent.com',
        cookiepolicy: 'single_host_origin',
        scope: 'profile email'
@@ -87,7 +87,6 @@ export class LoginComponent implements OnInit {
  public attachSignin(element) {
    this.auth2.attachClickHandler(element, {},
      (googleUser) => {
-
        let profile = googleUser.getBasicProfile();
        console.log('Token || ' + googleUser.getAuthResponse().id_token);
        console.log('ID: ' + profile.getId());
@@ -100,6 +99,8 @@ export class LoginComponent implements OnInit {
      }, (error) => {
        alert(JSON.stringify(error, undefined, 2));
      });
+
+     this.loading = true;
  }
 
   ngAfterViewInit(){
@@ -114,11 +115,9 @@ export class LoginComponent implements OnInit {
   }
 
   public signOut(){
-    auth2 = gapi.auth2.getAuthInstance();
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
       console.log('User signed out.');
-    }
-    this.fShowInfo = false;
+    });
   }
-
-
 }
