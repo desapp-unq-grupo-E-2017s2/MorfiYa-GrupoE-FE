@@ -36,4 +36,8 @@ export class HomeComponent implements OnInit {
     closeModal(id: string){
         this.modalService.close(id);
     }
+    addFoodBusiness (){
+    this.currentUser.business = this.model;
+    this.userService.update(this.currentUser);
+    }
 }

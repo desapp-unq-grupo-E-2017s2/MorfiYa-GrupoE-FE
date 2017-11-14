@@ -40,7 +40,7 @@
             <input type="description" class="form-control" name="description" [(ngModel)]="model.description" #description="ngModel" required />
             <div *ngIf="f.submitted && !description.valid" class="help-block">Description is required</div>
         </div>
-         <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+         <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !name.valid }">
             <label for="deliveryLocation">Zona Delivery</label>
             <input type="text" class="form-control" name="deliveryLocation" [(ngModel)]="model.deliveryLocation" #deliveryLocation="ngModel" required />
             <div *ngIf="f.submitted && !deliveryLocation.valid" class="help-block">DeliveryLocation is required</div>
@@ -53,10 +53,10 @@
         <div class="form-group">
             <button [disabled]="loading" class="btn btn-primary">Agregar</button>
             <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
-            <!--<a [routerLink]="['/login']" class="btn btn-link">Cancel</a> -->
+           <!-- <a [routerLink]="['/login']" class="btn btn-link">Cancel</a> -->
         </div>
-    </form>
-            <button (click)="closeModal('custom-modal-1');">Close</button>
+    </form> 
+            <button (click)="closeModal('foodBusinessCreate');">Close</button>
         </div>
     </div>
     <div class="modal-background"></div>
