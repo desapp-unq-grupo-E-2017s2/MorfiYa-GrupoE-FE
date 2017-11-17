@@ -17,4 +17,9 @@
             <a [routerLink]="['/register']" class="btn btn-link">Register</a>
         </div>
     </form>
+    <div class="login-wrapper">
+        <h2>Login with Google</h2>
+        <div id="{{googleLoginButtonId}}"></div>
+    </div>
+    <button href="#" (click)="signOut()">Sign out</button>
 </div>
