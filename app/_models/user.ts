@@ -1,4 +1,5 @@
-﻿export class User {
+﻿import {FoodBusiness} from './business.ts'
+export class User {
     id: number;
     email: string;
     password: string;
@@ -8,4 +9,5 @@
     phone: string;
     address: string;
     location: string;
+    business: FoodBusiness;
 }

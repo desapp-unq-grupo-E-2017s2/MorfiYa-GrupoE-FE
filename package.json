@@ -26,6 +26,7 @@
     "systemjs": "^0.19.47",
     "zone.js": "^0.8.5",
     "jquery": "^3.1.1",
+    "bootstrap": "4.0.0-beta.2",
     "underscore": "^1.8.3"
   },
   "devDependencies": {

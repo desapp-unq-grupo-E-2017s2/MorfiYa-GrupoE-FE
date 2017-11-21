@@ -17,6 +17,7 @@ import { AlertService, AuthenticationService, UserService, ModalService } from '
 import { HomeComponent } from './home/index';
 import { LoginComponent } from './login/index';
 import { RegisterComponent } from './register/index';
+import { CreateFoodBusinessComponent } from './createFoodBusiness/index';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { RegisterComponent } from './register/index';
         HomeComponent,
         LoginComponent,
         RegisterComponent,
-        ModalComponent
+        ModalComponent,
+        CreateFoodBusinessComponent
     ],
     providers: [
         AuthGuard,

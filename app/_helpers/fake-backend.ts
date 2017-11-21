@@ -80,9 +80,9 @@ export function fakeBackendFactory(backend: MockBackend, options: BaseRequestOpt
                 let newUser = JSON.parse(connection.request.getBody());
 
                 // validation
-                let duplicateUser = users.filter(user => { return user.username === newUser.username; }).length;
+                let duplicateUser = users.filter(user => { return user.email === newUser.email; }).length;
                 if (duplicateUser) {
-                    return connection.mockError(new Error('Username "' + newUser.username + '" is already taken'));
+                    return connection.mockError(new Error('Email "' + newUser.email + '" is already taken'));
                 }
 
                 // save new user
