@@ -44,9 +44,9 @@ import { CreateFoodBusinessComponent } from './createFoodBusiness/index';
         ModalService,
 
         // providers used to create fake backend
-        fakeBackendProvider,
+        /*fakeBackendProvider,
         MockBackend,
-        BaseRequestOptions
+        BaseRequestOptions*/
     ],
     bootstrap: [AppComponent]
 })

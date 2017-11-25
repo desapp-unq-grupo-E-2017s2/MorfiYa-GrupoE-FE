@@ -3,28 +3,32 @@ import { Http, Headers, RequestOptions, Response } from '@angular/http';
 
 import { User } from '../_models/index';
 
+const BASE_URL = 'http://localhost:1710/users';
+const HEADER = { headers: new Headers({ 'Content-Type': 'application/json' }) };
+
 @Injectable()
 export class UserService {
+
     constructor(private http: Http) { }
 
     getAll() {
-        return this.http.get('/api/users', this.jwt()).map((response: Response) => response.json());
+        return this.http.get(BASE_URL, this.jwt()).map((response: Response) => response.json());
     }
 
     getById(id: number) {
-        return this.http.get('/api/users/' + id, this.jwt()).map((response: Response) => response.json());
+        return this.http.get(`${BASE_URL}'/'${item.id}`, this.jwt()).map((response: Response) => response.json());
     }
 
     create(user: User) {
-        return this.http.post('/api/users', user, this.jwt()).map((response: Response) => response.json());
+        return this.http.post(BASE_URL, user, this.jwt()).map((response: Response) => response.json());
     }
 
     update(user: User) {
-        return this.http.put('/api/users/' + user.id, user, this.jwt()).map((response: Response) => response.json());
+        return this.http.put(`${BASE_URL}'/'${user.id}`, user, this.jwt()).map((response: Response) => response.json());
     }
 
     delete(id: number) {
-        return this.http.delete('/api/users/' + id, this.jwt()).map((response: Response) => response.json());
+        return this.http.delete(`${BASE_URL}'/'${item.id}`, this.jwt()).map((response: Response) => response.json());
     }
 
     // private helper methods
@@ -33,7 +37,7 @@ export class UserService {
         // create authorization header with jwt token
         let currentUser = JSON.parse(localStorage.getItem('currentUser'));
         if (currentUser && currentUser.token) {
-            let headers = new Headers({ 'Authorization': 'Bearer ' + currentUser.token });
+            let headers = new Headers({ 'Authorization': 'Bearer ' + currentUser.token, 'Acess-Controll-Allow-Origin': '*' });
             return new RequestOptions({ headers: headers });
         }
     }
