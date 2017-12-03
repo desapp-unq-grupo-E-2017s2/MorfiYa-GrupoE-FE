@@ -9,7 +9,11 @@
     "start": "concurrently \"npm run tsc:w\" \"npm run lite\" ",
     "lite": "lite-server",
     "tsc": "tsc",
-    "tsc:w": "tsc -w"
+    "tsc:w": "tsc -w",
+    "deploy": "git push origin master && git push heroku master"
+  },
+  "engines": {
+    "node": "6.10.2"
   },
   "license": "MIT",
   "dependencies": {
