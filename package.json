@@ -5,6 +5,7 @@
     "type": "git",
     "url": "https://github.com/desapp-unq-grupo-E-2017s2/MorfiYa-GrupoE-FE.git"
   },
+  "main" : "prostituta.js",
   "scripts": {
     "start": "concurrently \"npm run tsc:w\" \"npm run lite\" ",
     "lite": "lite-server",
@@ -13,7 +14,8 @@
     "deploy": "git push origin master && git push heroku master"
   },
   "engines": {
-    "node": "6.10.2"
+    "node": "8.9.1",
+    "npm" : "5.5.1"
   },
   "license": "MIT",
   "dependencies": {
