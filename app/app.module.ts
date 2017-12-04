@@ -18,6 +18,7 @@ import { HomeComponent } from './home/index';
 import { LoginComponent } from './login/index';
 import { RegisterComponent } from './register/index';
 import { CreateFoodBusinessComponent } from './createFoodBusiness/index';
+import {TranslateModule} from '@ngx-translate/core';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { CreateFoodBusinessComponent } from './createFoodBusiness/index';
         BrowserModule,
         FormsModule,
         HttpModule,
-        routing
+        routing,
+        TranslateModule.forRoot()
     ],
     declarations: [
         AppComponent,
