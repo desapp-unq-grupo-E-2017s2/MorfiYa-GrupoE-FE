@@ -18,8 +18,13 @@ import { HomeComponent } from './home/index';
 import { LoginComponent } from './login/index';
 import { RegisterComponent } from './register/index';
 import { CreateFoodBusinessComponent } from './createFoodBusiness/index';
-import {TranslateModule} from '@ngx-translate/core';
+import {TranslateModule, TranslateLoader} from "@ngx-translate/core";
+import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 
+// AoT requires an exported function for factories
+export function HttpLoaderFactory(httpClient: HttpClient) {
+    return new TranslateHttpLoader(httpClient, "i18n/", ".json");
+}
 
 @NgModule({
     imports: [
@@ -27,7 +32,13 @@ import {TranslateModule} from '@ngx-translate/core';
         FormsModule,
         HttpModule,
         routing,
-        TranslateModule.forRoot()
+         TranslateModule.forRoot({
+          loader: {
+            provide: TranslateLoader,
+            useFactory: HttpLoaderFactory,
+            deps: [HttpClient]
+          }
+        })
     ],
     declarations: [
         AppComponent,
