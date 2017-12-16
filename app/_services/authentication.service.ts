@@ -10,7 +10,7 @@ const URL = 'http://localhost:1710/authentication';
 export class AuthenticationService {
 
 
-    constructor(private http: Http, public router: Router) { }
+    constructor(private http: Http) { }
 
 
  login(email: string, password: string) {
