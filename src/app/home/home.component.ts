@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './../auth/auth.service';
 import { User } from '../_models/index';
-import { UserService} from '../_services/index';
+import { UserService, AlertService} from '../_services/index';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -43,7 +44,7 @@ private loadProfile() {
     this.auth.loginWithEmail(this.profile.nickname+'@gmail.com').subscribe(
                 data => {
                     this.alertService.success('Logueo con Google exitoso!', true);
-                    localStorage.setItem('currentUser',JSON.parse(data._body) ));
+                    localStorage.setItem('currentUser',JSON.parse(data._body) );
                    
                 },
                 error => {
