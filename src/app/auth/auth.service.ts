@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
 import { AUTH_CONFIG } from './auth0-variables';
 import { Router } from '@angular/router';
+import { AlertService} from '../_services/index';
 import { Http, Headers, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import * as auth0 from 'auth0-js';
+import 'rxjs/add/operator/map'
 
 const URL = 'http://localhost:1710/authentication';
 
@@ -21,29 +23,14 @@ export class AuthService {
     scope: 'openid profile'
   });
 
-  constructor(public router: Router, private http: Http) {}
+  constructor(public router: Router, private http: Http, private alertService: AlertService) {}
 
   public login(): void {
     this.auth0.authorize();
   }
 
-  public loginWithEmailAndPass(email: string, password: string) {
-       return this.http.post(URL, JSON.stringify({ email: email, password: password }))
-            .map((response: Response) => {
-                // login successful if there's a jwt token in the response
-                let user = response.json();
-                if (user ) {
-                    // store user details and jwt token in local storage to keep user logged in between page refreshes
-                    localStorage.setItem('currentUser', JSON.stringify(user));
-                }
-
-                return user;
-            });
-    }
-
-
-public loginWithEmail(email: string){
-	return this.http.post(URL, JSON.stringify({ email: email}))
+public loginWithGoogleProfile(){
+	return this.http.post(URL, JSON.stringify(this.userProfile))
             .map((response: Response) => {
                 // login successful if there's a jwt token in the response
                 let user = response.json();
@@ -72,10 +59,13 @@ public loginWithEmail(email: string){
 
   private setSession(authResult): void {
     // Set the time that the access token will expire at
+    
     const expiresAt = JSON.stringify((authResult.expiresIn * 1000) + new Date().getTime());
     localStorage.setItem('access_token', authResult.accessToken);
     localStorage.setItem('id_token', authResult.idToken);
     localStorage.setItem('expires_at', expiresAt);
+    this.loadProfile();
+    this.loginOrRegisterUser();
   }
 
   public logout(): void {
@@ -108,6 +98,28 @@ public loginWithEmail(email: string){
       }
       cb(err, profile);
     });
+  }
+
+  private loadProfile() {
+        
+    
+      this.getProfile((err, profile) => {
+        this.userProfile = profile;
+        this.loginOrRegisterUser();
+      });
+    }
+
+    loginOrRegisterUser(){
+    this.loginWithGoogleProfile().subscribe(
+                data => {
+                    this.alertService.success('Logueo con Google exitoso!', true);
+                    localStorage.setItem('currentUser',JSON.parse(data._body) );
+                   
+                },
+                error => {
+                    this.alertService.error(error);
+                });
+
   }
 
 }

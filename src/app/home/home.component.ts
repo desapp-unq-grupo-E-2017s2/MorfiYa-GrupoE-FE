@@ -15,10 +15,13 @@ export class HomeComponent implements OnInit {
    profile: any;
     users: User[] = [];
 
-    constructor(private userService: UserService, public router:Router,public auth: AuthService,private alertService: AlertService,) {}
+    constructor(private userService: UserService, 
+      public router:Router,public auth: AuthService,
+      private alertService: AlertService) {
+      //this.loadProfile();
+    }
 
   ngOnInit() {
-  this.loadProfile();
   this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
@@ -26,7 +29,7 @@ export class HomeComponent implements OnInit {
         this.userService.getAll().subscribe(users => { this.users = users; });
     }
 
-private loadProfile() {
+/*private loadProfile() {
         
     if (this.auth.userProfile) {
       this.profile = this.auth.userProfile;
@@ -41,7 +44,7 @@ private loadProfile() {
     }
 
     loginOrRegisterUser(){
-    this.auth.loginWithEmail(this.profile.nickname+'@gmail.com').subscribe(
+    this.auth.loginWithGoogleProfile(this.profile).subscribe(
                 data => {
                     this.alertService.success('Logueo con Google exitoso!', true);
                     localStorage.setItem('currentUser',JSON.parse(data._body) );
@@ -51,5 +54,5 @@ private loadProfile() {
                     this.alertService.error(error);
                 });
 
-  }
+  }*/
 }
