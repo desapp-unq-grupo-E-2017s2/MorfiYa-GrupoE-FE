@@ -1,0 +1,24 @@
+<div class="col-md-12 col-md-offset-1">
+    <h1>Listado de menues</h1>
+  	<div *ngFor='let menu of allMenues'>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Descripcion</th>
+                <th scope="col">Precio</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>{{menu.name}}</th>
+                <td>{{menu.description}}</td>
+                <td>{{menu.price}}</td>
+              </tr>
+            </tbody>
+          </table>
+  	</div>	
+    <div>
+    	<a class= 'btn btn-success'[routerLink]="['/']">Regresar</a>
+  	</div>	
+</div>

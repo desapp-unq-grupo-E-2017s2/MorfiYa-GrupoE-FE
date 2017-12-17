@@ -2,7 +2,6 @@
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { AlertService, AuthenticationService } from '../_services/index';
-import {TranslateService} from '@ngx-translate/core';
 
 @Component({
     moduleId: module.id,
@@ -18,12 +17,8 @@ export class LoginComponent implements OnInit {
         private route: ActivatedRoute,
         private router: Router,
         private authenticationService: AuthenticationService,
-        private alertService: AlertService,
-        private translate: TranslateService)  { 
-         translate.setDefaultLang('es');
-
-         // the lang to use, if the lang isn't available, it will use the current loader to get them
-        translate.use('es');
+        private alertService: AlertService)  { 
+        
         }
 
     ngOnInit() {

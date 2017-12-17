@@ -24,7 +24,8 @@ export class UserService {
     }
 
     update(user: User) {
-        return this.http.put(`${BASE_URL}'/'${user.id}`, user, this.jwt()).map((response: Response) => response.json());
+        var userId = user.id;
+        return this.http.put(BASE_URL.concat('/'+userId), user, this.jwt()).map((response: Response) => response.json());
     }
 
     delete(id: number) {

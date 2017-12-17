@@ -14,7 +14,6 @@ export class AuthenticationService {
 
 
  login(email: string, password: string) {
-    this.auth0.authorize();
        return this.http.post(URL, JSON.stringify({ email: email, password: password }))
             .map((response: Response) => {
                 // login successful if there's a jwt token in the response

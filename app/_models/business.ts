@@ -1,4 +1,5 @@
-export class User {
+import {FoodMenu} from './menu'
+export class FoodBusiness {
     id: number;
     name: string;
     logo: string;
@@ -6,4 +7,5 @@ export class User {
     description: string;
     deliveryLocation: string;
     website: string;
+    menues: Array<FoodMenu>;
 }

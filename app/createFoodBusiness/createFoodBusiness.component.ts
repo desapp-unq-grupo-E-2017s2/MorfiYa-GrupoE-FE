@@ -19,8 +19,9 @@ export class CreateFoodBusinessComponent {
 
     addFoodBusinessToCurrentUser(): void {
         this.currentUser.business = this.model;
+        localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
         this.userService.update(this.currentUser);
-         this.router.navigate(['/']);
+        this.router.navigate(['/']);
     }
 
   
