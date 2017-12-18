@@ -1,0 +1,51 @@
+﻿<div class="col-md-6 col-md-offset-3">
+    <h2>Crear Menu</h2>          
+<form name="form" (ngSubmit)="f.form.valid && addFoodMenuToCurrentUser()" #f="ngForm" novalidate>
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !name.valid }">
+            <label for="name">Nombre</label>
+            <input type="text" class="form-control" name="name" [(ngModel)]="model.name" #name="ngModel" required />
+            <div *ngIf="f.submitted && !name.valid" class="help-block">Name is required</div>
+        </div>
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !name.valid }">
+            <label for="description">Descripcion</label>
+            <input type="text" class="form-control" name="description" [(ngModel)]="model.description" #description="ngModel" required />
+            <div *ngIf="f.submitted && !description.valid" class="help-block">Description is required</div>
+        </div>
+         <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !name.valid }">
+            <label for="validDatePeriod">Periodo de validez</label>
+            <input type="text" class="form-control" name="validDatePeriod" [(ngModel)]="model.validDatePeriod" #validDatePeriod="ngModel" required />
+            <div *ngIf="f.submitted && !validDatePeriod.valid" class="help-block">A period is required</div>
+        </div>
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !name.valid }">
+            <label for="deliveryTimeStart">Horario de delivery</label>
+            <input type="deliveryTimeStart" class="form-control" name="deliveryTimeStart" [(ngModel)]="model.deliveryTimeStart" #deliveryTimeStart="ngModel" required />
+            <div *ngIf="f.submitted && !deliveryTimeStart.valid" class="help-block">Este campo es obligatorio</div>
+        </div>
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !name.valid }">
+            <label for="deliveryTimeEnd">Horario de delivery</label>
+            <input type="deliveryTimeEnd" class="form-control" name="deliveryTimeEnd" [(ngModel)]="model.deliveryTimeEnd" #deliveryTimeEnd="ngModel" required />
+            <div *ngIf="f.submitted && !deliveryTimeEnd.valid" class="help-block">Este campo es obligatorio</div>
+        </div>
+         <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !name.valid }">
+            <label for="deliveryTimeAverage">Tiempo aproximado de tardanza</label>
+            <input type="text" class="form-control" name="deliveryTimeAverage" [(ngModel)]="model.deliveryTimeAverage" #deliveryTimeAverage="ngModel" required />
+            <div *ngIf="f.submitted && !deliveryTimeAverage.valid" class="help-block">This field is required</div>
+        </div>
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !name.valid }">
+            <label for="price">Precio</label>
+            <input type="price" class="form-control" name="price" [(ngModel)]="model.price" #price="ngModel" required />
+            <div *ngIf="f.submitted && !price.valid" class="help-block">This field is required</div>
+        </div>
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !name.valid }">
+            <label for="maximumSaleQuantity">Disponible</label>
+            <input type="maximumSaleQuantity" class="form-control" name="maximumSaleQuantity" [(ngModel)]="model.maximumSaleQuantity" #maximumSaleQuantity="ngModel" required />
+            <div *ngIf="f.submitted && !maximumSaleQuantity.valid" class="help-block">This field is required</div>
+        </div>
+        <div class="form-group">
+            <button [disabled]="loading" class="btn btn-primary">Agregar</button>
+            <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" /> 
+            <a [routerLink]="['/']" class="btn btn-link">Cancel</a> 
+      </div>
+    </form> 
+   
+</div>

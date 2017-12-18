@@ -16,7 +16,7 @@ export class UserService {
     }
 
     getById(id: number) {
-        return this.http.get(`${BASE_URL}'/'${id}`, this.jwt()).map((response: Response) => response.json());
+        return this.http.get(BASE_URL.concat('/'+id), this.jwt()).map((response: Response) => response.json());
     }
 
     create(user: User) {
@@ -24,11 +24,11 @@ export class UserService {
     }
 
     update(user: User) {
-        return this.http.put(`${BASE_URL}'/'${user.id}`, user, this.jwt()).map((response: Response) => response.json());
+        return this.http.put(BASE_URL.concat('/'+user.id), user, this.jwt()).map((response: Response) => response.json());
     }
 
     delete(id: number) {
-        return this.http.delete(`${BASE_URL}'/'${id}`, this.jwt()).map((response: Response) => response.json());
+        return this.http.delete(BASE_URL.concat('/'+id), this.jwt()).map((response: Response) => response.json());
     }
 
     // private helper methods

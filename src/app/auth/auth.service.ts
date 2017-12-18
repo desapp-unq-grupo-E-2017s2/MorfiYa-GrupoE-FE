@@ -91,10 +91,9 @@ public loginWithGoogleProfile(){
       throw new Error('Access token must exist to fetch profile');
     }
 
-    const self = this;
     this.auth0.client.userInfo(accessToken, (err, profile) => {
       if (profile) {
-        self.userProfile = profile;
+        this.userProfile = profile;
       }
       cb(err, profile);
     });

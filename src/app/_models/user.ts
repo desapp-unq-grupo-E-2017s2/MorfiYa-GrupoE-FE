@@ -1,7 +1,6 @@
 ﻿import {FoodBusiness} from './business'
 export class User {
-    id: number;
-    
+    id: number;  
     name: string;
     lastName: string;
     cuit: string;

@@ -1,3 +1,4 @@
+import {FoodMenu} from './menu'
 export class FoodBusiness {
     id: number;
     name: string;
@@ -6,4 +7,5 @@ export class FoodBusiness {
     description: string;
     deliveryLocation: string;
     website: string;
+    menues: Array<FoodMenu>;
 }

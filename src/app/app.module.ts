@@ -12,13 +12,17 @@ import { AlertService, UserService} from './_services/index';
 import { AuthService } from './auth/index';
 import { CallbackComponent } from './callback/index';
 import { CreateFoodBusinessComponent } from './createFoodBusiness/index';
+import { CreateFoodMenuComponent } from './createFoodMenu/index';
+import { AllMenuesComponent } from './allMenues/index'; 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     CallbackComponent,
-    CreateFoodBusinessComponent
+    CreateFoodBusinessComponent,
+        CreateFoodMenuComponent,
+        AllMenuesComponent
   ],
   imports: [
     BrowserModule,
