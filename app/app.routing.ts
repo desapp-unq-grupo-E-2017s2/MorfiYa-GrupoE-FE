@@ -5,6 +5,8 @@ import { LoginComponent } from './login/index';
 import { RegisterComponent } from './register/index';
 import { AuthGuard } from './_guards/index';
 import { CreateFoodBusinessComponent } from './createFoodBusiness/index';
+import { CreateFoodMenuComponent } from './createFoodMenu/index';
+import { AllMenuesComponent } from './allMenues/index';
 
 
 const appRoutes: Routes = [
@@ -12,6 +14,8 @@ const appRoutes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
     { path: 'createFoodBusiness', component: CreateFoodBusinessComponent },
+    { path: 'createMenu' , component: CreateFoodMenuComponent},
+    { path: 'allMenues' , component: AllMenuesComponent}, 
 
     // otherwise redirect to home
     { path: '**', redirectTo: '' }

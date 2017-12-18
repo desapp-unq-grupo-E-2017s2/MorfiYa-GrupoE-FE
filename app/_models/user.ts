@@ -1,7 +1,6 @@
-﻿import {FoodBusiness} from './business.ts'
+﻿import {FoodBusiness} from './business'
 export class User {
     id: number;
-    
     name: string;
     lastName: string;
     cuit: string;
