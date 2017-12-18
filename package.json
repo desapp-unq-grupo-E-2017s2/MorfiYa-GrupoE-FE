@@ -1,23 +1,13 @@
 {
-  "name": "MrfiYa",
+  "name": "MorfiYa",
   "version": "1.0.0",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/desapp-unq-grupo-E-2017s2/MorfiYa-GrupoE-FE.git"
-  },
-  "main": "prostituta.js",
-  "scripts": {
-    "start": "concurrently \"npm run tsc:w\" \"npm run lite\" ",
-    "lite": "lite-server",
-    "tsc": "tsc",
-    "tsc:w": "tsc -w",
-    "deploy": "git push origin master && git push heroku master"
-  },
-  "engines": {
-    "node": "8.9.1",
-    "npm": "5.5.1"
-  },
   "license": "MIT",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build"
+  },
+  "private": true,
   "dependencies": {
     "@angular/common": "^4.0.0",
     "@angular/compiler": "^4.0.0",
@@ -27,24 +17,19 @@
     "@angular/platform-browser": "^4.0.0",
     "@angular/platform-browser-dynamic": "^4.0.0",
     "@angular/router": "^4.0.0",
-    "core-js": "^2.4.1",
-    "rxjs": "^5.2.0",
-    "systemjs": "^0.19.47",
-    "zone.js": "^0.8.17",
-    "typescript": "^2.2.2",
-    "jquery": "^3.1.1",
+    "auth0-js": "^8.11.3",
     "bootstrap": "4.0.0-beta.2",
-    "underscore": "^1.8.3",
-    "express": "^4.13.3",
-    "angular2-i18n": "1.0.2",
-    "@ngx-translate/core": "9.0.1"
+    "core-js": "^2.4.1",
+    "rxjs": "^5.4.2",
+    "zone.js": "^0.8.4",
+    "jquery": "^3.1.1"
   },
   "devDependencies": {
-    "@types/node": "^6.0.60",
-    "concurrently": "^3.1.0",
-    "lite-server": "^2.3.0",
-    "typescript": "^2.2.2",
+    "@angular/cli": "^1.0.0",
+    "@angular/compiler-cli": "^4.0.0",
+    "@types/node": "~7.0.16",
+    "ts-node": "~3.0.3",
     "@types/jquery": "^2.0.39",
-    "@types/underscore": "^1.7.33"
+    "typescript": "~2.3.2"
   }
 }

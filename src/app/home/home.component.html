@@ -1,0 +1,19 @@
+<div *ngIf="auth.isAuthenticated()" class="col-md-6 col-md-offset-3">
+    <h1>¡Hola {{currentUser.name}}!</h1>
+  	<div *ngIf='!currentUser.business'>
+  		<p>No tenes un negocio, queres crear uno?</p>
+    	<a class='btn btn-primary' [routerLink]="['/createFoodBusiness']" >Crear Negocio</a>
+  	</div>	
+    
+    <div  *ngIf='currentUser.business'>
+      <p>Este es su negocio {{currentUser.business.name}}</p>
+      <a class='btn btn-primary' [routerLink]="['/createMenu']" >Agregar Menu</a>
+      <a class= 'btn btn-success'[routerLink]="['/allMenues']">Ver menues</a>
+    </div>  
+</div>
+<h4 *ngIf="!auth.isAuthenticated()">
+  ¡No estas registrado! Hace click <a (click)="auth.login()">aqui</a> para continuar.
+</h4>
+
+﻿
+
