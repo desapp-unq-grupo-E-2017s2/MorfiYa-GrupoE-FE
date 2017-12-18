@@ -24,12 +24,7 @@ export class UserService {
     }
 
     update(user: User) {
-<<<<<<< HEAD:app/_services/user.service.ts
-        var userId = user.id;
-        return this.http.put(BASE_URL.concat('/'+userId), user, this.jwt()).map((response: Response) => response.json());
-=======
         return this.http.put(BASE_URL.concat('/'+user.id), user, this.jwt()).map((response: Response) => response.json());
->>>>>>> auth0+Integracion:src/app/_services/user.service.ts
     }
 
     delete(id: number) {
