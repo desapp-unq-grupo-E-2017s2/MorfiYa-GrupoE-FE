@@ -16,6 +16,7 @@ import { CreateFoodBusinessComponent } from './createFoodBusiness/index';
 import { CreateFoodMenuComponent } from './createFoodMenu/index';
 import { AllMenuesComponent } from './allMenues/index'; 
 import { PurchaseComponent} from './purchase/index';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { PurchaseComponent} from './purchase/index';
     FormsModule,
     HttpModule,
     RouterModule.forRoot(ROUTES),
-    Ng2PaginationModule
+    Ng2PaginationModule,
+    Ng2SearchPipeModule
   ],
   providers: [  AuthGuard,
                 AuthService,

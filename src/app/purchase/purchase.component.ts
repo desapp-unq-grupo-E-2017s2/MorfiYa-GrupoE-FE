@@ -25,13 +25,14 @@ export class PurchaseComponent implements OnInit, OnDestroy{
     }
    
    ngOnInit() {
-    this.sub = this.route.queryParams.subscribe(params => {
+   this.model = this.route.snapshot.params.menu;
+    /*this.sub = this.route.queryParams.subscribe(params => {
        this.model = params['menuToBuy']; 
 
-    });
+    });*/
   }
 
   ngOnDestroy() {
-    this.sub.unsubscribe();
+    //this.sub.unsubscribe();
   }
 }
