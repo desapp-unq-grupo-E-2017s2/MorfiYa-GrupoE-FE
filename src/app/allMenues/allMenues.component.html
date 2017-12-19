@@ -1,19 +1,22 @@
 <div class="col-md-12 col-md-offset-1">
     <h1>Listado de menues</h1>
-  	<div *ngFor='let menu of allMenues'>
+  	<div >
         <table class="table">
             <thead>
               <tr>
                 <th scope="col">Nombre</th>
                 <th scope="col">Descripcion</th>
                 <th scope="col">Precio</th>
+                <th scope="col"> Cantidad </th>
               </tr>
             </thead>
-            <tbody>
+            <tbody *ngFor='let menu of allMenues'>
               <tr>
-                <th>{{menu.name}}</th>
+                <td>{{menu.name}}</td>
                 <td>{{menu.description}}</td>
                 <td>{{menu.price}}</td>
+                <td> {{menu.maximumSaleQuantity}}</td>
+                <td><a class= 'btn btn-success'(click)="buyMenu(menu)">Comprar</a></td>
               </tr>
             </tbody>
           </table>

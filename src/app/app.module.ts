@@ -14,6 +14,7 @@ import { CallbackComponent } from './callback/index';
 import { CreateFoodBusinessComponent } from './createFoodBusiness/index';
 import { CreateFoodMenuComponent } from './createFoodMenu/index';
 import { AllMenuesComponent } from './allMenues/index'; 
+import { PurchaseComponent} from './purchase/index';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AllMenuesComponent } from './allMenues/index';
     CallbackComponent,
     CreateFoodBusinessComponent,
         CreateFoodMenuComponent,
-        AllMenuesComponent
+        AllMenuesComponent,
+        PurchaseComponent
   ],
   imports: [
     BrowserModule,

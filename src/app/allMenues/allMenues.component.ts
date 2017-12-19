@@ -21,4 +21,8 @@ export class AllMenuesComponent {
     allFoodMenues():Array<FoodMenu> {
        return this.currentUser.business.menues;
     }  
+
+    buyMenu(menu : FoodMenu){
+    this.router.navigate(['/purchase'], { queryParams: { menuToBuy: menu } });
+    }
 }

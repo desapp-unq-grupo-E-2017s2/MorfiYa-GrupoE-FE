@@ -65,7 +65,6 @@ public loginWithGoogleProfile(){
     localStorage.setItem('id_token', authResult.idToken);
     localStorage.setItem('expires_at', expiresAt);
     this.loadProfile();
-    this.loginOrRegisterUser();
   }
 
   public logout(): void {
@@ -112,7 +111,7 @@ public loginWithGoogleProfile(){
     this.loginWithGoogleProfile().subscribe(
                 data => {
                     this.alertService.success('Logueo con Google exitoso!', true);
-                    localStorage.setItem('currentUser',JSON.parse(data._body) );
+                    //localStorage.setItem('currentUser',JSON.parse(data._body) );
                    
                 },
                 error => {
