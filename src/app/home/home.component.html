@@ -6,7 +6,7 @@
   	</div>	
     
     <div  *ngIf='currentUser.business'>
-      <p>Este es su negocio {{currentUser.business.name}}</p>
+      <p>Este es su negocio: {{currentUser.business.name}}</p>
       <a class='btn btn-primary' [routerLink]="['/createMenu']" >Agregar Menu</a>
       <a class= 'btn btn-success'[routerLink]="['/allMenues']">Ver menues</a>
     </div>  

@@ -11,6 +11,7 @@ import { ROUTES } from './app.routes';
 import { AlertService, UserService} from './_services/index';
 import { AuthService } from './auth/index';
 import { CallbackComponent } from './callback/index';
+import {Ng2PaginationModule} from 'ng2-pagination';
 import { CreateFoodBusinessComponent } from './createFoodBusiness/index';
 import { CreateFoodMenuComponent } from './createFoodMenu/index';
 import { AllMenuesComponent } from './allMenues/index'; 
@@ -28,7 +29,8 @@ import { AllMenuesComponent } from './allMenues/index';
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(ROUTES)
+    RouterModule.forRoot(ROUTES),
+    Ng2PaginationModule
   ],
   providers: [  AuthGuard,
                 AuthService,
