@@ -8,4 +8,5 @@ export class FoodMenu {
     deliveryTimeAverage: string;
     price: number;
     maximumSaleQuantity: number;
+    category: string;
 }

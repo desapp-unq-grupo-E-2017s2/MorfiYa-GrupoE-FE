@@ -1,25 +1,47 @@
 <div class="col-md-12 col-md-offset-1">
     <h1>Listado de menues</h1>
-  	<div >
-        <table class="table">
+
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="input-group">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button" click="menuesOfCategory()">Buscar</button>
+          </span>
+          <input type="text" class="form-control" placeholder="Filtre menues por categoria">
+        </div>
+      </div>
+    </div>
+  	<div>
+        <table class="table" >
+
             <thead>
               <tr>
                 <th scope="col">Nombre</th>
                 <th scope="col">Descripcion</th>
                 <th scope="col">Precio</th>
                 <th scope="col"> Cantidad </th>
+                 <th scope="col">Categoria</th>
               </tr>
+
             </thead>
-            <tbody *ngFor='let menu of allMenues'>
+            <tbody *ngFor="let menu of menues() | paginate: {itemsPerPage: 2, currentPage:page, id: '1'}; let i = index">
               <tr>
                 <td>{{menu.name}}</td>
                 <td>{{menu.description}}</td>
                 <td>{{menu.price}}</td>
+
                 <td> {{menu.maximumSaleQuantity}}</td>
+                <td>{{menu.category}}</td>
                 <td><a class= 'btn btn-success'(click)="buyMenu(menu)">Comprar</a></td>
+
               </tr>
             </tbody>
           </table>
+          <pagination-controls (pageChange)="page = $event" id="1"
+          maxSize="5"
+          directionLinks="true"
+          autoHide="true">
+          </pagination-controls>
   	</div>	
     <div>
     	<a class= 'btn btn-success'[routerLink]="['/']">Regresar</a>
